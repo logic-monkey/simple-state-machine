@@ -23,14 +23,14 @@ func _physics_process(delta):
 	if Engine.is_editor_hint(): return
 	if current: current.phys(delta)
 
-func transition(state_name: String, args: Dictionary = {}):
+func transition(state_name: String, args: Dictionary = {}, previous_state = ""):
 	current.exit()
 	if not state_name in _map:
 		current = initial_state
 		print("%s does not have a %s state" % [owner.name, state_name])
 	else:
 		current = _map[state_name]
-	current.enter(args)
+	current.enter(previous_state, args)
 
 func has_state(state_name: String) -> bool:
 	return state_name in _map

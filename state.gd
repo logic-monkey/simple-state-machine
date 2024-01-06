@@ -4,7 +4,7 @@ class_name State
 
 var state_machine: StateMachine
 
-func enter(_msg: Dictionary = {}):
+func enter(previous_state:String="", _msg: Dictionary = {}):
 	pass
 
 func proc(_delta: float):
@@ -17,4 +17,4 @@ func exit():
 	pass
 
 func transition(state_name: String, msg: Dictionary = {}):
-	state_machine.transition(state_name, msg)
+	state_machine.transition(state_name, msg, name)
