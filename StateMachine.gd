@@ -31,8 +31,8 @@ func transition(state_name: String, args: Dictionary = {}, previous_state = ""):
 		print("%s does not have a %s state" % [owner.name, state_name])
 	else:
 		transition_to = _map[state_name]
-	transition_to.enter(previous_state, args)
 	current = transition_to
+	transition_to.enter(previous_state, args)
 
 func has_state(state_name: String) -> bool:
 	return state_name in _map
