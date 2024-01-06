@@ -25,12 +25,14 @@ func _physics_process(delta):
 
 func transition(state_name: String, args: Dictionary = {}, previous_state = ""):
 	current.exit()
+	var transition_to : State
 	if not state_name in _map:
-		current = initial_state
+		transition_to = initial_state
 		print("%s does not have a %s state" % [owner.name, state_name])
 	else:
-		current = _map[state_name]
-	current.enter(previous_state, args)
+		transition_to = _map[state_name]
+	transition_to.enter(previous_state, args)
+	current = transition_to
 
 func has_state(state_name: String) -> bool:
 	return state_name in _map

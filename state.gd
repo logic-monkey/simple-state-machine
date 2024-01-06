@@ -18,3 +18,7 @@ func exit():
 
 func transition(state_name: String, msg: Dictionary = {}):
 	state_machine.transition(state_name, msg, name)
+
+var active : bool :
+	get:
+		return state_machine.current == self
