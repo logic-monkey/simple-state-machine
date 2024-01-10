@@ -17,7 +17,7 @@ func exit():
 	pass
 
 func transition(state_name: String, msg: Dictionary = {}):
-	state_machine.transition(state_name, msg, name)
+	state_machine.transition(state_name, msg, state_machine.current.name)
 
 var active : bool :
 	get:
