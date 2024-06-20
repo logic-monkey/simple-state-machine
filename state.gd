@@ -13,7 +13,7 @@ func proc(_delta: float):
 func phys(_delta: float):
 	pass
 
-func exit():
+func exit(_next_state:String=""):
 	pass
 
 func transition(state_name: String, msg: Dictionary = {}):
